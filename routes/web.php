@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\etudiantController;
 use App\Http\Controllers\administrationController;
 use App\Http\Controllers\reclamationController;
-
+/*
 Route::get('/', function () {
     return view('bienvenue');
 });

@@ -24,6 +24,14 @@ class etudiantController extends Controller
                 ->where('email', '=', $request->email)->get(['id', 'nom']);
             */
             $etudiant = etudiant::where('email', '=', $request->email)->get();
+            /*
+            On retourne une variable reclamation qui contient toutes les informations concernant les reclamations faites par un etudiant 
+            en fonction de son identifiant
+            Mais dabord on recupere juste son identifiant pour pouvoir recuperer toutes les reclamations de l'etudiant 
+            en fonction de son id
+            $var = etudiant::where('email', '=', $request->email)->get('id');
+            $reclamations = reclamation::where('user_id', '=', $var)->first();
+             */
             return view('etudiant', compact('etudiant'));
         }
     }
