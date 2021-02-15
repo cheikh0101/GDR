@@ -4,11 +4,11 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\etudiantController;
 use App\Http\Controllers\administrationController;
 use App\Http\Controllers\reclamationController;
-/*
+
 Route::get('/', function () {
     return view('bienvenue');
 });
-
+/*
 Route::get('/loginEtudiant', [etudiantController::class, 'return_etudiant']);
 
 Route::post('/loginEtudiant', [etudiantController::class, 'info_etudiant']);
