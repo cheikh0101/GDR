@@ -8,7 +8,7 @@ use App\Http\Controllers\reclamationController;
 Route::get('/', function () {
     return view('bienvenue');
 });
-/*
+
 Route::get('/loginEtudiant', [etudiantController::class, 'return_etudiant']);
 
 Route::post('/loginEtudiant', [etudiantController::class, 'info_etudiant']);
