@@ -27,20 +27,19 @@
                             <th>MATIERE</th>
                             <th>Type Evaluation</th>
                             <th>COMMENTAIRE</th>
-                            <th>Date Création</th>
-                            <th>Date Mise à Jour</th>
+                            <th colspan="2">Infos Etudiants (nom et n°dossier)</th>
                         </tr>
                         </thead>
                         <tbody>
                             @foreach ($reclamations as $reclamation)
                             <tr>
-                                <td scope="row">{{$reclamation->id}}</td>
+                                <td scope="row">{{++$i}}</td>
                                 <td>{{$reclamation->semestre}}</td>
                                 <td>{{$reclamation->matiere}}</td>
                                 <td>{{$reclamation->typeEvaluation}}</td>
                                 <td>{{$reclamation->commentaire}}</td>
-                                <td>{{$reclamation->created_at}}</td>
-                                <td>{{$reclamation->updated_at}}</td>
+                                <td>{{$reclamation->prenom}} {{$reclamation->nom}}</td>
+                                <td>{{$reclamation->num_dossier}}</td>
                             </tr>
                             @endforeach
                         </tbody>

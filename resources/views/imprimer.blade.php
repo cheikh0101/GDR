@@ -35,7 +35,7 @@
                         <tbody>
                             @foreach ($reclamations as $reclamation)
                             <tr>
-                                <td scope="row">{{$reclamation->id}}</td>
+                                <td scope="row">{{++$i}}</td>
                                 <td>{{$reclamation->semestre}}</td>
                                 <td>{{$reclamation->matiere}}</td>
                                 <td>{{$reclamation->typeEvaluation}}</td>

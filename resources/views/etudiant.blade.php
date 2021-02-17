@@ -158,6 +158,66 @@ Tableau de Bord
                                             @break
                                             @endforeach
                                      </div>
+                                </div>
+                            </h6>
+                        </div>
+                        <div class="card-body">
+                            <div class="table-responsive">
+                                <table class="table table-bordered" id="" width="100%" cellspacing="0">
+                                    <thead>
+                                        <tr>
+                                            <th>N°</th>
+                                            <th>Types d'évaluation</th>
+                                            <th>Semestre</th>
+                                            <th>Commentaire</th>
+                                            <th>Matiere</th>
+                                            <th>Créé le</th>
+                                        </tr>
+                                    </thead>
+                                    @foreach ($reclamations as $reclamation)
+                                        <tr>
+                                            <td>{{++$i}}</td>
+                                            <td>{{$reclamation->typeEvaluation}}</td>
+                                            <td>{{$reclamation->semestre}}</td>
+                                            <td>{{$reclamation->commentaire}}</td>
+                                            <td>{{$reclamation->matiere}}</td>
+                                            <td>{{$reclamation->created_at}}</td>
+                                        </tr>
+                                    @endforeach
+                                </tbody>
+                                </table>
+                            </div>
+                        </div>
+
+                    </div>
+                    @endisset
+                </div>
+                <!-- /.container-fluid -->
+
+                <!-- Begin Page Content -->
+                <div class="container-fluid">
+                    @isset($reclamation3)
+                    <!-- Page Heading -->
+                    <h1 class="h3 mb-2 text-gray-800">Tableau de mes réclamations </h1>
+                    <!-- DataTales Example -->
+                    <div class="card shadow mb-4">
+                        <div class="card-header py-3">
+                            <h6 class="m-0 font-weight-bold text-primary">
+                                <div class="row">
+                                    <div class="col">
+                                        Liste de mes réclamations
+                                    </div>
+                                    <div class="col">
+                                        @foreach ($reclamation3 as $reclamation)
+                                            <h4 class="card-title">
+                                                <marquee>
+                                                Total RECLAMATIONS :
+                                                {{$loop->count}}  
+                                                </marquee>
+                                            </h4>
+                                            @break
+                                            @endforeach
+                                        </div>
                                     
                                 </div>
                             </h6>
@@ -167,21 +227,21 @@ Tableau de Bord
                                 <table class="table table-bordered" id="" width="100%" cellspacing="0">
                                     <thead>
                                         <tr>
+                                            <th>N°</th>
                                             <th>Types d'évaluation</th>
                                             <th>Semestre</th>
                                             <th>Commentaire</th>
                                             <th>Matiere</th>
-                                            <th>Créé le</th>
                                         </tr>
                                     </thead>
                                 
-                                    @foreach ($reclamations as $reclamation)
+                                    @foreach ($reclamation3 as $reclamation)
                                         <tr>
+                                            <td>{{++$i}}</td>
                                             <td>{{$reclamation->typeEvaluation}}</td>
                                             <td>{{$reclamation->semestre}}</td>
                                             <td>{{$reclamation->commentaire}}</td>
                                             <td>{{$reclamation->matiere}}</td>
-                                            <td>{{$reclamation->created_at}}</td>
                                         </tr>
                                     @endforeach
                                     
@@ -194,6 +254,7 @@ Tableau de Bord
                     @endisset
                 </div>
                 <!-- /.container-fluid -->
+                
 
                 <div class="container-fluid">
                     <div class="row">

@@ -187,13 +187,13 @@ TB Administration | GDR
                                     @endif
                                    @foreach ($reclamations as $reclamation)
                                     <tr>
-                                        <td>{{$reclamation->id}}</td>
+                                        <td>{{++$i}}</td>
                                         <td>{{$reclamation->matiere}} </td>
                                         <td>{{$reclamation->semestre}} </td>
                                         <td>{{$reclamation->typeEvaluation}}</td>
                                         <td> {{$reclamation->commentaire}}</td>
                                         <td>{{$reclamation->created_at}}</td>
-                                        <td>{{$reclamation->prenom}} </td>
+                                        <td>{{$reclamation->prenom}} {{$reclamation->nom}} </td>
                                         <td>{{$reclamation->num_dossier}} </td>
                                     </tr>
                                     @endforeach
@@ -235,20 +235,22 @@ TB Administration | GDR
                                             <th>Semestre</th>
                                             <th>Types d'évaluation</th>
                                             <th>Commentaire</th>
-                                            <th>Créée le</th>
+                                            <th colspan="2" > <center> Infos Etudiants(prenom et n°dossier) </center></th>
                                         </tr>
                                     </thead>
                                     @if (count($reclamations3) == 0)
                                     <p class="text-center font-weight-bold text-primary">AUCUNE RECLAMATION</p>
                                     @endif
+                                    <div style="display: none">{{$i=0}}</div>
                                     @foreach ($reclamations3 as $reclamation3)
                                     <tr>
-                                        <td>{{$reclamation3->id}}</td>
+                                        <td>{{++$i}}</td>
                                         <td>{{$reclamation3->matiere}} </td>
                                         <td>{{$reclamation3->semestre}} </td>
                                         <td>{{$reclamation3->typeEvaluation}}</td>
                                         <td> {{$reclamation3->commentaire}}</td>
-                                        <td>{{$reclamation3->updated_at}}</td>
+                                        <td>{{$reclamation3->prenom}} {{$reclamation3->nom}}</td>
+                                        <td>{{$reclamation3->num_dossier}}</td>
                                     </tr>
                                     @endforeach
                                     </tbody>
@@ -290,21 +292,22 @@ TB Administration | GDR
                                             <th>Semestre</th>
                                             <th>Types d'évaluation</th>
                                             <th>Commentaire</th>
-                                            <th>Créée le</th>
+                                            <th colspan="2" > <center> Infos Etudiants(prenom et n°dossier) </center></th>
                                         </tr>
                                     </thead>
                                     @if (count($reclamations4) == 0)
                                     <p class="text-center font-weight-bold text-primary">AUCUNE RECLAMATION</p>
                                     @endif
-
+                                    <div style="display: none">{{$i=0}}</div>
                                     @foreach ($reclamations4 as $reclamation4)
                                     <tr>
-                                        <td>{{$reclamation4->id}}</td>
+                                        <td>{{++$i}}</td>
                                         <td>{{$reclamation4->matiere}} </td>
                                         <td>{{$reclamation4->semestre}} </td>
                                         <td>{{$reclamation4->typeEvaluation}}</td>
                                         <td> {{$reclamation4->commentaire}}</td>
-                                        <td>{{$reclamation4->updated_at}}</td>
+                                        <td> {{$reclamation4->prenom}} {{$reclamation4->nom}}</td>
+                                        <td> {{$reclamation4->num_dossier}}</td>
                                     </tr>
                                     @endforeach
                                     </tbody>

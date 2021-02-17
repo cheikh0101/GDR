@@ -20,19 +20,16 @@ class etudiantController extends Controller
         if ($etudiants == null) {
             return view('loginEtudiant')->with(['message' => 'login ou mot de passe incorrecte']);
         } else {
-            /*            $etudiant = DB::table('etudiants')
-                ->where('email', '=', $request->email)->get(['id', 'nom']);
-            */
+
             $etudiant = etudiant::where('email', '=', $request->email)->get();
-            /*
-            On retourne une variable reclamation qui contient toutes les informations concernant les reclamations faites par un etudiant 
-            en fonction de son identifiant
-            Mais dabord on recupere juste son identifiant pour pouvoir recuperer toutes les reclamations de l'etudiant 
-            en fonction de son id
-            $var = etudiant::where('email', '=', $request->email)->get('id');
-            $reclamations = reclamation::where('user_id', '=', $var)->first();
-             */
-            return view('etudiant', compact('etudiant'));
+
+            $password = $request->password;
+            $reclamation3 = DB::table('etudiants')
+                ->select('prenom', 'nom', 'num_dossier', 'matiere', 'semestre', 'typeEvaluation', 'commentaire')
+                ->join('reclamations', 'reclamations.user_id', '=', 'etudiants.id')
+                ->where('password', $password)->get();
+            $i = 0;
+            return view('etudiant', compact('etudiant', 'i', 'reclamation3'));
         }
     }
 
@@ -59,7 +56,8 @@ class etudiantController extends Controller
         } else {
             $etudiant = etudiant::where('email', '=', $request->email)->get();
             $reclamations = reclamation::where('user_id', '=', $request->user_id)->get();
-            return view('etudiant')->with(['message' => 'Réclamation enregistrée avec succes', 'etudiant' => $etudiant, 'reclamations' => $reclamations]);
+            $i = 0;
+            return view('etudiant', compact('i'))->with(['message' => 'Réclamation enregistrée avec succes', 'etudiant' => $etudiant, 'reclamations' => $reclamations]);
         }
     }
 }

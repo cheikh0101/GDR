@@ -19,31 +19,49 @@ class administrationController extends Controller
     {
         $administration = administration::whereEmail($request->email)->wherePassword($request->password)->first();
         $reclamations = DB::select('select * from etudiants as e, reclamations as r where e.id = r.user_id');
-        $reclamations3 = reclamation::where('semestre', '=', 'semestre 3')->get();
-        $reclamations4 = reclamation::where('semestre', '=', 'semestre 4')->get();
+        $reclamations3 = DB::table('etudiants')
+            ->select('prenom', 'nom', 'num_dossier', 'matiere', 'semestre', 'typeEvaluation', 'commentaire')
+            ->join('reclamations', 'reclamations.user_id', '=', 'etudiants.id')
+            ->where('semestre', '=', 'semestre 3')->get();
+        $reclamations4 = DB::table('etudiants')
+            ->select('prenom', 'nom', 'num_dossier', 'matiere', 'semestre', 'typeEvaluation', 'commentaire')
+            ->join('reclamations', 'reclamations.user_id', '=', 'etudiants.id')
+            ->where('semestre', '=', 'semestre 4')->get();
+
         if ($administration == null) {
             return view('loginAdministration')->with(['message' => 'login ou mot de passe incorrecte']);
         } else {
-            return view('administration')->with(['administration' => $administration, 'reclamations' => $reclamations, 'reclamations3' => $reclamations3, 'reclamations4' => $reclamations4]);
+            $i = 0;
+            return view('administration', compact('i'))->with(['administration' => $administration, 'reclamations' => $reclamations, 'reclamations3' => $reclamations3, 'reclamations4' => $reclamations4]);
         }
     }
 
     public function imprimer()
     {
         $reclamations = DB::select('select * from etudiants as e, reclamations as r where e.id = r.user_id');
-        return view('imprimer')->with(['reclamations' => $reclamations]);
+        $i = 0;
+        return view('imprimer', compact('i'))->with(['reclamations' => $reclamations]);
     }
 
     public function imprimer3()
     {
-        $reclamations = reclamation::where('semestre', '=', 'semestre 3')->get();
-        return view('imprimer3')->with(['reclamations' => $reclamations]);
+        $reclamations = DB::table('etudiants')
+            ->select('prenom', 'nom', 'num_dossier', 'matiere', 'semestre', 'typeEvaluation', 'commentaire')
+            ->join('reclamations', 'reclamations.user_id', '=', 'etudiants.id')
+            ->where('semestre', '=', 'semestre 3')->get();
+        $i = 0;
+        return view('imprimer3', compact('i'))->with(['reclamations' => $reclamations]);
     }
 
     public function imprimer4()
     {
-        $reclamations = reclamation::where('semestre', '=', 'semestre 4')->get();
-        return view('imprimer4')->with(['reclamations' => $reclamations]);
+        $reclamations = DB::table('etudiants')
+            ->select('prenom', 'nom', 'num_dossier', 'matiere', 'semestre', 'typeEvaluation', 'commentaire')
+            ->join('reclamations', 'reclamations.user_id', '=', 'etudiants.id')
+            ->where('semestre', '=', 'semestre 4')->get();
+
+        $i = 0;
+        return view('imprimer4', compact('i'))->with(['reclamations' => $reclamations]);
     }
 
     public function deconnecter(Request $request)

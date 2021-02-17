@@ -1,7 +1,7 @@
 @extends('template_bienvenue')
 
 @section('title')
-Bienvenue | GDR
+Gestion Des Réclamations | GDR
 @endsection
 
 @section('contenu')
