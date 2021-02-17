@@ -61,7 +61,7 @@
     </div>
 
     <script>
-        alert('Login1 :cheikh@gmail.com || Mot de Passe:123456 // Login2:fatima@gmail.com || Mot de passe:123456 ');
+        alert('Login1 :cheikh@gmail.com || Mot de Passe:1234567 // Login2:fatima@gmail.com || Mot de passe:123456 ');
     </script>
 
 @endsection
