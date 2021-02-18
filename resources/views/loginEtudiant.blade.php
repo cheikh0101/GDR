@@ -12,7 +12,7 @@
                 <form action="/loginEtudiant" method="POST" class="sign-in-form">
                     @csrf
                     @isset($message)
-                    <div class="alert alert-warning alert-dismissible fade show" style="background-color: red; height:50px;" role="alert">
+                    <div class="alert alert-warning alert-dismissible fade show" style="background-color: #d63031; height:50px;" role="alert">
                         <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                           <span aria-hidden="true">&times;</span>
                         </button>
