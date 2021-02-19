@@ -27,6 +27,7 @@
                             <th>MATIERE</th>
                             <th>Type Evaluation</th>
                             <th>COMMENTAIRE</th>
+                            <th>Professeur</th>
                             <th colspan="2">Infos Etudiants (nom et n°dossier)</th>
                         </tr>
                         </thead>
@@ -38,6 +39,7 @@
                                 <td>{{$reclamation->matiere}}</td>
                                 <td>{{$reclamation->typeEvaluation}}</td>
                                 <td>{{$reclamation->commentaire}}</td>
+                                <td>{{$reclamation->professeur}}</td>
                                 <td>{{$reclamation->prenom}} {{$reclamation->nom}}</td>
                                 <td>{{$reclamation->num_dossier}}</td>
                             </tr>

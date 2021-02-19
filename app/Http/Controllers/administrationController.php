@@ -28,9 +28,11 @@ class administrationController extends Controller
             ->join('reclamations', 'reclamations.user_id', '=', 'etudiants.id')
             ->where('semestre', '=', 'semestre 4')->get();
 
-        $reclamationthiam = DB::table('reclamations')
-            ->select('matiere', 'semestre', 'typeEvaluation', 'commentaire', 'professeur')
+        $reclamationthiam = DB::table('etudiants')
+            ->select('prenom', 'nom', 'num_dossier', 'matiere', 'semestre', 'typeEvaluation', 'commentaire', 'professeur')
+            ->join('reclamations', 'reclamations.user_id', '=', 'etudiants.id')
             ->where('professeur', '=', 'mouhamadou thiam')->get();
+
 
         $reclamationpapadiop = DB::table('etudiants')
             ->select('prenom', 'nom', 'num_dossier', 'matiere', 'semestre', 'typeEvaluation', 'commentaire', 'professeur')
@@ -60,7 +62,7 @@ class administrationController extends Controller
     public function imprimer3()
     {
         $reclamations = DB::table('etudiants')
-            ->select('prenom', 'nom', 'num_dossier', 'matiere', 'semestre', 'typeEvaluation', 'commentaire')
+            ->select('prenom', 'nom', 'num_dossier', 'matiere', 'semestre', 'typeEvaluation', 'commentaire', 'professeur')
             ->join('reclamations', 'reclamations.user_id', '=', 'etudiants.id')
             ->where('semestre', '=', 'semestre 3')->get();
         $i = 0;
@@ -70,7 +72,7 @@ class administrationController extends Controller
     public function imprimer4()
     {
         $reclamations = DB::table('etudiants')
-            ->select('prenom', 'nom', 'num_dossier', 'matiere', 'semestre', 'typeEvaluation', 'commentaire')
+            ->select('prenom', 'nom', 'num_dossier', 'matiere', 'semestre', 'typeEvaluation', 'commentaire', 'professeur')
             ->join('reclamations', 'reclamations.user_id', '=', 'etudiants.id')
             ->where('semestre', '=', 'semestre 4')->get();
 

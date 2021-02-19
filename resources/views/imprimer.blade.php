@@ -28,7 +28,7 @@
                             <th>Type Evaluation</th>
                             <th>COMMENTAIRE</th>
                             <th>Date Création</th>
-                            <th>Date Mise à Jour</th>
+                            <th>Professeur</th>
                             <th colspan="3">Infos Etudiants</th>
                         </tr>
                         </thead>
@@ -41,7 +41,7 @@
                                 <td>{{$reclamation->typeEvaluation}}</td>
                                 <td>{{$reclamation->commentaire}}</td>
                                 <td>{{$reclamation->created_at}}</td>
-                                <td>{{$reclamation->updated_at}}</td>
+                                <td>{{$reclamation->professeur}}</td>
                                 <td> {{$reclamation->prenom}} </td>
                                 <td> {{$reclamation->nom}} </td>
                                 <td> {{$reclamation->num_dossier}} </td>

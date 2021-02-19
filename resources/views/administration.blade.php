@@ -376,6 +376,7 @@ TB Administration | GDR
                                             <th>Semestre</th>
                                             <th>Types d'évaluation</th>
                                             <th>Commentaire</th>
+                                            <th colspan="3">Infos Etudiants</th>
                                         </tr>
                                     </thead>
                                     @if (count($reclamationthiam) == 0)
@@ -389,6 +390,9 @@ TB Administration | GDR
                                         <td>{{$reclamation4->semestre}} </td>
                                         <td>{{$reclamation4->typeEvaluation}}</td>
                                         <td> {{$reclamation4->commentaire}}</td>
+                                        <td>{{$reclamation4->prenom}}</td>
+                                        <td>{{$reclamation4->nom}}</td>
+                                        <td>{{$reclamation4->num_dossier}}</td>
                                     </tr>
                                     @endforeach
                                     </tbody>

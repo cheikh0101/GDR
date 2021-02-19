@@ -23,11 +23,11 @@ class etudiantController extends Controller
 
             $etudiant = etudiant::where('email', '=', $request->email)->get();
 
-            $password = $request->password;
+            $password = $request->email;
             $reclamation3 = DB::table('etudiants')
                 ->select('prenom', 'nom', 'num_dossier', 'matiere', 'semestre', 'typeEvaluation', 'commentaire')
                 ->join('reclamations', 'reclamations.user_id', '=', 'etudiants.id')
-                ->where('password', $password)->get();
+                ->where('email', $password)->get();
             $i = 0;
             return view('etudiant', compact('etudiant', 'i', 'reclamation3'));
         }
