@@ -20,19 +20,33 @@ class administrationController extends Controller
         $administration = administration::whereEmail($request->email)->wherePassword($request->password)->first();
         $reclamations = DB::select('select * from etudiants as e, reclamations as r where e.id = r.user_id');
         $reclamations3 = DB::table('etudiants')
-            ->select('prenom', 'nom', 'num_dossier', 'matiere', 'semestre', 'typeEvaluation', 'commentaire')
+            ->select('prenom', 'nom', 'num_dossier', 'matiere', 'semestre', 'typeEvaluation', 'commentaire', 'professeur')
             ->join('reclamations', 'reclamations.user_id', '=', 'etudiants.id')
             ->where('semestre', '=', 'semestre 3')->get();
         $reclamations4 = DB::table('etudiants')
-            ->select('prenom', 'nom', 'num_dossier', 'matiere', 'semestre', 'typeEvaluation', 'commentaire')
+            ->select('prenom', 'nom', 'num_dossier', 'matiere', 'semestre', 'typeEvaluation', 'commentaire', 'professeur')
             ->join('reclamations', 'reclamations.user_id', '=', 'etudiants.id')
             ->where('semestre', '=', 'semestre 4')->get();
+
+        $reclamationthiam = DB::table('reclamations')
+            ->select('matiere', 'semestre', 'typeEvaluation', 'commentaire', 'professeur')
+            ->where('professeur', '=', 'mouhamadou thiam')->get();
+
+        $reclamationpapadiop = DB::table('etudiants')
+            ->select('prenom', 'nom', 'num_dossier', 'matiere', 'semestre', 'typeEvaluation', 'commentaire', 'professeur')
+            ->join('reclamations', 'reclamations.user_id', '=', 'etudiants.id')
+            ->where('professeur', '=', 'papa diop')->get();
+
+        $reclamationcheikhsarr = DB::table('etudiants')
+            ->select('prenom', 'nom', 'num_dossier', 'matiere', 'semestre', 'typeEvaluation', 'commentaire', 'professeur')
+            ->join('reclamations', 'reclamations.user_id', '=', 'etudiants.id')
+            ->where('professeur', '=', 'cheikh sarr')->get();
 
         if ($administration == null) {
             return view('loginAdministration')->with(['message' => 'login ou mot de passe incorrecte']);
         } else {
             $i = 0;
-            return view('administration', compact('i'))->with(['administration' => $administration, 'reclamations' => $reclamations, 'reclamations3' => $reclamations3, 'reclamations4' => $reclamations4]);
+            return view('administration', compact('i', 'reclamationthiam', 'reclamationpapadiop', 'reclamationcheikhsarr'))->with(['administration' => $administration, 'reclamations' => $reclamations, 'reclamations3' => $reclamations3, 'reclamations4' => $reclamations4]);
         }
     }
 

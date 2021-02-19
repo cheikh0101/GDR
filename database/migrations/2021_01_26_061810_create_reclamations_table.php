@@ -18,6 +18,7 @@ class CreateReclamationsTable extends Migration
             $table->string('semestre')->nullable();
             $table->string('matiere');
             $table->string('typeEvaluation');
+            $table->string('professeur');
             $table->text('commentaire');
             $table->integer('user_id')->unsigned();
             /*

@@ -48,6 +48,7 @@ class etudiantController extends Controller
         $savee->matiere = $request->input('matiere');
         $savee->typeEvaluation = $request->input('typeEvaluation');
         $savee->commentaire = $request->input('commentaire');
+        $savee->professeur = $request->input('professeur');
         $savee->user_id = $request->input('user_id');
         $savee->save();
 

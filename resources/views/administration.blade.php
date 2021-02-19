@@ -47,6 +47,27 @@ TB Administration | GDR
                     <span><i class="fa " aria-hidden="false">&#xf161;</i>Semestre 4</span>
                 </a>
             </li>
+
+            <!-- Divider -->
+            <hr class="sidebar-divider">
+
+             <!-- Nav Item - Pages Collapse Menu -->
+             <li class="nav-item">
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo"
+                    aria-expanded="true" aria-controls="collapseTwo">
+                    <i class="fas fa-fw fa-cog"></i>
+                    <span>Professeurs</span>
+                </a>
+                <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        <h6 class="collapse-header">Liste des Professeurs:</h6>
+                        <a class="collapse-item" href="#mouhamadouthiam">Mouhamadou THIAM</a>
+                        <a class="collapse-item" href="#cheikhsarr">Cheikh SARR</a>
+                        <a class="collapse-item" href="#papadiop">Papa DIOP</a>
+                    </div>
+                </div>
+            </li>
+           
              <!-- Divider -->
              <hr class="sidebar-divider">
              <li class="nav-item">
@@ -180,6 +201,7 @@ TB Administration | GDR
                                             <th>Commentaire</th>
                                             <th>Créée le</th>
                                             <th colspan="2" > <center> Infos Etudiants(prenom et n°dossier) </center></th>
+                                            <th>Professeur</th>
                                         </tr>
                                     </thead>
                                     @if (count($reclamations) == 0)
@@ -195,6 +217,7 @@ TB Administration | GDR
                                         <td>{{$reclamation->created_at}}</td>
                                         <td>{{$reclamation->prenom}} {{$reclamation->nom}} </td>
                                         <td>{{$reclamation->num_dossier}} </td>
+                                        <td>{{$reclamation->professeur}}</td>
                                     </tr>
                                     @endforeach
                                     </tbody>
@@ -236,6 +259,7 @@ TB Administration | GDR
                                             <th>Types d'évaluation</th>
                                             <th>Commentaire</th>
                                             <th colspan="2" > <center> Infos Etudiants(prenom et n°dossier) </center></th>
+                                            <th>Professeur</th>
                                         </tr>
                                     </thead>
                                     @if (count($reclamations3) == 0)
@@ -251,6 +275,7 @@ TB Administration | GDR
                                         <td> {{$reclamation3->commentaire}}</td>
                                         <td>{{$reclamation3->prenom}} {{$reclamation3->nom}}</td>
                                         <td>{{$reclamation3->num_dossier}}</td>
+                                        <td>{{$reclamation3->professeur}}</td>
                                     </tr>
                                     @endforeach
                                     </tbody>
@@ -293,6 +318,7 @@ TB Administration | GDR
                                             <th>Types d'évaluation</th>
                                             <th>Commentaire</th>
                                             <th colspan="2" > <center> Infos Etudiants(prenom et n°dossier) </center></th>
+                                            <th>Professeur</th>
                                         </tr>
                                     </thead>
                                     @if (count($reclamations4) == 0)
@@ -308,6 +334,7 @@ TB Administration | GDR
                                         <td> {{$reclamation4->commentaire}}</td>
                                         <td> {{$reclamation4->prenom}} {{$reclamation4->nom}}</td>
                                         <td> {{$reclamation4->num_dossier}}</td>
+                                        <td> {{$reclamation4->professeur}}</td>
                                     </tr>
                                     @endforeach
                                     </tbody>
@@ -319,6 +346,168 @@ TB Administration | GDR
                         </div>
                        </div>
                        <!--fin semestre 4-->
+
+                       <div id="mouhamadouthiam">
+                        <!-- DataTales Example -->
+                        <div class="card shadow mb-4">
+                           <div class="card-header py-3">
+                               <h6 class="m-0 font-weight-bold text-primary">
+                                   <div class="row">
+                                       <div class="col">
+                                        Liste des reclamations du semestre concernant Mr THIAM
+                                       </div>
+                                       <div class="col">
+                                        Total Reclamations :
+                                        @foreach ($reclamationthiam as $reclamation)
+                                            {{$loop->count}}
+                                            @break
+                                        @endforeach       
+                                        </div>
+                                   </div>
+                                </h6>
+                           </div>
+                           <div class="card-body">
+                               <div class="table-responsive">
+                                <table class="table table-bordered" id="" width="100%" cellspacing="0">
+                                    <thead>
+                                        <tr>
+                                            <th>N°</th>
+                                            <th>Matiere</th>
+                                            <th>Semestre</th>
+                                            <th>Types d'évaluation</th>
+                                            <th>Commentaire</th>
+                                        </tr>
+                                    </thead>
+                                    @if (count($reclamationthiam) == 0)
+                                    <p class="text-center font-weight-bold text-primary">AUCUNE RECLAMATION</p>
+                                    @endif
+                                    <div style="display: none">{{$i=0}}</div>
+                                    @foreach ($reclamationthiam as $reclamation4)
+                                    <tr>
+                                        <td>{{++$i}}</td>
+                                        <td>{{$reclamation4->matiere}} </td>
+                                        <td>{{$reclamation4->semestre}} </td>
+                                        <td>{{$reclamation4->typeEvaluation}}</td>
+                                        <td> {{$reclamation4->commentaire}}</td>
+                                    </tr>
+                                    @endforeach
+                                    </tbody>
+                                </table>
+                               </div>
+                           </div>
+                       </div>
+                       <!--fin professeur thiam-->
+
+                       <div id="papadiop">
+                        <!-- DataTales Example -->
+                        <div class="card shadow mb-4">
+                           <div class="card-header py-3">
+                               <h6 class="m-0 font-weight-bold text-primary">
+                                   <div class="row">
+                                       <div class="col">
+                                        Liste des réclamations du semestre concernant Mr DIOP
+                                       </div>
+                                       <div class="col">
+                                        Total Reclamations :
+                                        @foreach ($reclamationpapadiop as $reclamation)
+                                            {{$loop->count}}
+                                            @break
+                                        @endforeach       
+                                        </div>
+                                   </div>
+                                </h6>
+                           </div>
+                           <div class="card-body">
+                               <div class="table-responsive">
+                                <table class="table table-bordered" id="" width="100%" cellspacing="0">
+                                    <thead>
+                                        <tr>
+                                            <th>N°</th>
+                                            <th>Matiere</th>
+                                            <th>Semestre</th>
+                                            <th>Types d'évaluation</th>
+                                            <th>Commentaire</th>
+                                            <th colspan="3">Infos Etudiants</th>
+                                        </tr>
+                                    </thead>
+                                    @if (count($reclamationpapadiop) == 0)
+                                    <p class="text-center font-weight-bold text-primary">AUCUNE RECLAMATION</p>
+                                    @endif
+                                    <div style="display: none">{{$i=0}}</div>
+                                    @foreach ($reclamationpapadiop as $reclamation4)
+                                    <tr>
+                                        <td>{{++$i}}</td>
+                                        <td>{{$reclamation4->matiere}} </td>
+                                        <td>{{$reclamation4->semestre}} </td>
+                                        <td>{{$reclamation4->typeEvaluation}}</td>
+                                        <td> {{$reclamation4->commentaire}}</td>
+                                        <td>{{$reclamation4->prenom}}</td>
+                                        <td>{{$reclamation4->nom}}</td>
+                                        <td>{{$reclamation4->num_dossier}}</td>
+                                    </tr>
+                                    @endforeach
+                                    </tbody>
+                                </table>
+                               </div>
+                           </div>
+                       </div>
+                       <!--fin professeur papa diop-->
+
+                       <div id="cheikhsarr">
+                        <!-- DataTales Example -->
+                        <div class="card shadow mb-4">
+                           <div class="card-header py-3">
+                               <h6 class="m-0 font-weight-bold text-primary">
+                                   <div class="row">
+                                       <div class="col">
+                                        Liste des reclamations du semestre concernant Mr Cheikh SARR
+                                       </div>
+                                       <div class="col">
+                                        Total Reclamations :
+                                        @foreach ($reclamationcheikhsarr as $reclamation)
+                                            {{$loop->count}}
+                                            @break
+                                        @endforeach       
+                                        </div>
+                                   </div>
+                                </h6>
+                           </div>
+                           <div class="card-body">
+                               <div class="table-responsive">
+                                <table class="table table-bordered" id="" width="100%" cellspacing="0">
+                                    <thead>
+                                        <tr>
+                                            <th>N°</th>
+                                            <th>Matiere</th>
+                                            <th>Semestre</th>
+                                            <th>Types d'évaluation</th>
+                                            <th>Commentaire</th>
+                                            <th colspan="3">Infos Etudiants</th>
+                                        </tr>
+                                    </thead>
+                                    @if (count($reclamationcheikhsarr) == 0)
+                                    <p class="text-center font-weight-bold text-primary">AUCUNE RECLAMATION</p>
+                                    @endif
+                                    <div style="display: none">{{$i=0}}</div>
+                                    @foreach ($reclamationcheikhsarr as $reclamation4)
+                                    <tr>
+                                        <td>{{++$i}}</td>
+                                        <td>{{$reclamation4->matiere}} </td>
+                                        <td>{{$reclamation4->semestre}} </td>
+                                        <td>{{$reclamation4->typeEvaluation}}</td>
+                                        <td> {{$reclamation4->commentaire}}</td>
+                                        <td>{{$reclamation4->prenom}}</td>
+                                        <td>{{$reclamation4->nom}}</td>
+                                        <td>{{$reclamation4->num_dossier}}</td>
+                                    </tr>
+                                    @endforeach
+                                    </tbody>
+                                </table>
+                               </div>
+                           </div>
+                       </div>
+                       <!--fin professeur cheikh sarr-->
+
                        <div class="row">
                            <div class="col"></div>
                            <div class="col">

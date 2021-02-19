@@ -325,12 +325,20 @@ Tableau de Bord
                                 <div class="col-lg-6 mb-4">
                                   <div class="card shadow mb-4">
                                     <div class="card-header py-3">
-                                      <h6 class="m-0 font-weight-bold text-primary">Commentaire</h6>
+                                      <h6 class="m-0 font-weight-bold text-primary">Informations Importantes</h6>
                                     </div>
                                     <div class="card-body">
                                         <div class="form-group">
                                             <label>Commentaire </label>
                                             <textarea class="form-control" rows="5" name="commentaire"></textarea>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="">Professeur </label>
+                                            <select class="custom-select" name="professeur" id="">
+                                                <option >Mouhamadou Thiam</option>
+                                                <option >Papa Diop</option>
+                                                <option >Cheikh Sarr</option>
+                                            </select>
                                         </div>
                                     </div>
                                   </div>
